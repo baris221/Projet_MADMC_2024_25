@@ -1,0 +1,13 @@
+I=[0.2;0.9]
+
+y=(5,2), f(y)=4.7
+y_prime=(1,6) f(y_prime)=4.9
+
+f(y_prime)>f(y)
+
+y_prime_prime=(4,1)
+
+y+y_prime_prime=(9,3)  y(y+y_prime_prime)=8.4
+y_prime+y_prime_prime=(5,7) f(y_prime+y_prime_prime)=6.6
+
+f(y+y_prime_prime)>f(y_prime+y_prime_prime)
