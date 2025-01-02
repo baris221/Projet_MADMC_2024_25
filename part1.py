@@ -66,41 +66,41 @@ def ordre_lex_pareto(vecteurs):
     return vecteurs_pareto_opti
 
 
+if __name__=="__main__":
+    # Comparaison expérimentale
+    n_values = range(200, 10001, 200)
+    m = 1000
+    iterations = 50
 
-# Comparaison expérimentale
-n_values = range(200, 10001, 200)
-m = 1000
-iterations = 50
+    temps_algo1 = []  # Pour l'algorithme basé sur `is_dominated`
+    temps_algo2 = []  # Pour l'algorithme basé sur `ordre_lex_pareto`
 
-temps_algo1 = []  # Pour l'algorithme basé sur `is_dominated`
-temps_algo2 = []  # Pour l'algorithme basé sur `ordre_lex_pareto`
+    for n in n_values:
+        temps1 = []
+        temps2 = []
+        for _ in range(iterations):
+            vecteurs = generer_vecteurs_normaux(n, m)
 
-for n in n_values:
-    temps1 = []
-    temps2 = []
-    for _ in range(iterations):
-        vecteurs = generer_vecteurs_normaux(n, m)
+            # Temps pour le premier algorithme
+            start = time.time()
+            list1=get_pareto_optimals(vecteurs)
+            temps1.append(time.time() - start)
 
-        # Temps pour le premier algorithme
-        start = time.time()
-        list1=get_pareto_optimals(vecteurs)
-        temps1.append(time.time() - start)
+            # Temps pour le second algorithme
+            start = time.time()
+            list2=ordre_lex_pareto(vecteurs)
+            temps2.append(time.time() - start)
+        # Moyenne des temps d'exécution
+        temps_algo1.append(np.mean(temps1))
+        temps_algo2.append(np.mean(temps2))
 
-        # Temps pour le second algorithme
-        start = time.time()
-        list2=ordre_lex_pareto(vecteurs)
-        temps2.append(time.time() - start)
-    # Moyenne des temps d'exécution
-    temps_algo1.append(np.mean(temps1))
-    temps_algo2.append(np.mean(temps2))
-
-# Tracé des résultats
-plt.figure(figsize=(10, 6))
-plt.plot(n_values, temps_algo1, label='Algorithme basé sur is_dominated', marker='o')
-plt.plot(n_values, temps_algo2, label='Algorithme basé sur ordre_lex_pareto', marker='x')
-plt.xlabel('Nombre de vecteurs (n)')
-plt.ylabel('Temps moyen (secondes)')
-plt.title('Comparaison des temps d\'exécution des deux algorithmes')
-plt.legend()
-plt.grid()
-plt.show()
+    # Tracé des résultats
+    plt.figure(figsize=(10, 6))
+    plt.plot(n_values, temps_algo1, label='Algorithme basé sur is_dominated', marker='o')
+    plt.plot(n_values, temps_algo2, label='Algorithme basé sur ordre_lex_pareto', marker='x')
+    plt.xlabel('Nombre de vecteurs (n)')
+    plt.ylabel('Temps moyen (secondes)')
+    plt.title('Comparaison des temps d\'exécution des deux algorithmes')
+    plt.legend()
+    plt.grid()
+    plt.show()
