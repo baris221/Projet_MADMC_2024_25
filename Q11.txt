@@ -1,0 +1,21 @@
+Question 11. Montrer que y I-domine y′si et seulement si : 
+
+(1)
+∀α∈{α_min,α_max}, αy1 + (1−α)y2 ≤ αy′1 + (1−α)y′2
+∃α∈{α_min,α_max}, αy1 + (1−α)y2 < αy′1 + (1−α)y′2
+
+(2)
+∀α∈I, αy1 + (1−α)y2 ≤ αy′1 + (1−α)y′2
+∃α∈I, αy1 + (1−α)y2 < αy′1 + (1−α)y′2
+
+Il faut donc prouver que (1) <=> (2)
+
+L'implication (2) => (1) est directe car α_min∈I et α_max∈I donc c'est déjà pris en compte par (2)
+
+L'implication (1) => (2) est valide aussi car on sait d'après la question 8 que max{αy1 + (1−α)y2} est obtenu
+quand α = α_min ou α = α_max donc on sait que :
+    Si ∀α∈{α_min,α_max}, αy1 + (1−α)y2 ≤ αy′1 + (1−α)y′2 pour α = α_min ou α = α_max alors αy1 + (1−α)y2 ≤ αy′1 + (1−α)y′2 ∀α∈I
+    Si ∃α∈{α_min,α_max}, αy1 + (1−α)y2 < αy′1 + (1−α)y′2 pour α = α_min ou α = α_max alors αy1 + (1−α)y2 < αy′1 + (1−α)y′2 ∃α∈I
+
+On n'a pas besoin de tester les autres valeurs α car on sait que max{αy1 + (1−α)y2} ≤ αy′1 + (1−α)y′2     
+

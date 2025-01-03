@@ -1,0 +1,29 @@
+Question 10. Soit ND l’ensemble des points non-dominés au sens de Pareto, et NI l’ensemble des points non I-dominés. 
+Montrer que NI⊆ND et qu’un point minimax est inclus dans NI.
+
+y  = (6,8) 
+y' = (12,10)
+
+∃α∈I, αy1 + (1−α)y2 < αy′1 + (1−α)y′2  ?
+
+αy1 + (1−α)y2 - (αy′1 + (1−α)y′2) = αy1 - αy′1 + (1−α)y2 - (1−α)y′2 = α(y1-y'1) + (1-α)(y2-y'2)
+
+Si α(y1-y'1) + (1-α)(y2-y'2) < 0 :
+    y1-y'1 < 0 et y2-y'2 <= 0 donc y1 < y'1 et y2 <= y'2
+    y2-y'2 < 0 et y1-y'1 <= 0 donc y2 < y'2 et y1 <= y'1
+
+Ainsi, si on est dans NI, on est forcément aussi dans ND.
+
+
+
+On a vu à la question 8 qu'on pouvait implémenter un algorithme pour déterminer un point minimax
+en comparant les valeurs αy1 + (1−α)y2 des vecteurs entre eux et en choisissant le vecteur qui minimise la somme.
+Ainsi, on obtenait bien un minimax y tel que pour tout autre vecteur y' : 
+    ∀α∈I, αy1 + (1−α)y2 ≤ αy′1 + (1−α)y′
+    ∃α ∈I, αy1 + (1 −α)y2 < αy′1 + (1 −α)y′2  en prenant α = α_min ou α = α_max
+
+
+
+
+
+

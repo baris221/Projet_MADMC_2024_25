@@ -21,14 +21,14 @@ def generer_vecteurs_normaux(n,m):
 
 def is_dominated(v,vecteurs):
     """
-    Renvoie True si le vecteur v est pareto-opti par rapport aux vecteurs.
+    Renvoie True si le vecteur v dominé par d'autres vecteurs.
 
     Paramètres:
     - v (np.ndarray) : Vecteur à tester.
     - vecteurs (np.ndarray) : Ensemble de vecteurs.
 
     Retour:
-    - bool: True si v est pareto-opti, False sinon.
+    - bool: True si v est dominé, False sinon.
     """
     for vecteur in vecteurs:
         if (vecteur[0]<v[0] and vecteur[1]<v[1]) or (vecteur[0]<=v[0] and vecteur[1]<v[1]) or (vecteur[0]<v[0] and vecteur[1]<=v[1]) :

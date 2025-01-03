@@ -1,0 +1,11 @@
+Question 8. Montrer que, pour y fixé, max{αy1 + (1 − α)y2 : α ∈ I}
+est réalisé pour α = α_min ou α = α_max.
+
+On a 2 cas possibles :
+    - Si y1 >= y2 alors α = α_max donnera les valeurs les plus élevées car on pondère le plus grand y par le plus grand facteur α
+    - Si y1 < y2 alors α = α_min donnera les valeurs les plus élevées car on pondère le plus grand y par le plus grand facteur (1-α)   
+
+    //α1*y1 + (1-α1)*y2 <= α_max*y1 + (1-α_max)*y2 <= α_max*y1 + (1-α_max)*y1 = y1   si y1 >= y2
+    //donc α*y1 + (1-α)*y2 <= y1
+    //donc (1-α)*y2 <= (1-α)*y1
+
