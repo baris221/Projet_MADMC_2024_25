@@ -1,0 +1,9 @@
+Question 6. Cette approche n’est valide que si un point minimax est inclus
+dans l’ensemble des points non-dominés. Montrer que c’est bien le cas.
+
+Supposons par l'absurde que l'approche est valide si un point minimax est inclus dans l’ensemble des points dominés.
+Dans ce cas, la procédure recherche les points non-dominés puis détermine un point minimax parmi ceux-ci.
+Ainsi, on élimine tous les points dominés.
+Cependant, on sait grâce à la question 1 que le principe d'optimalité n'est pas vérifié.
+Par conséquent, l'image d'un point y peut être dominée par celle d'un point y' mais quand même permettre de trouver un chemin qui mènera à 
+un point dont l'image est supérieure à celle qu'on aurait obtenu en prenant le point y' à sa place. 
