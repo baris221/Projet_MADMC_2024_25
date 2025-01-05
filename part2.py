@@ -23,7 +23,7 @@ def prog_dynamique(vecteurs,k):
                 vecteurs_opti=[]
             table_DP[i][j]=vecteurs_opti
     
-    print(table_DP)
+
     return table_DP[n][k]
 
 def find_minimax(vecteurs,alpha_min,alpha_max):
@@ -51,9 +51,9 @@ def deux_etapes_procedures(vecteurs,k,alpha_min,alpha_max):
 
 alpha_min=0.1
 alpha_max=0.9
-k=2
-vecteurs=generer_vecteurs_normaux(3,10)
-print(vecteurs)
+k=20
+vecteurs=generer_vecteurs_normaux(50,10)
 
-print(deux_etapes_procedures(vecteurs,k,alpha_min,alpha_max))
-        
+vecteurs_min_max=deux_etapes_procedures(vecteurs,k,alpha_min,alpha_max)
+
+print(vecteurs_min_max)
