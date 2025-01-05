@@ -7,21 +7,23 @@ def prog_dynamique(vecteurs,k):
     n=len(vecteurs)
     table_DP=[[[] for _ in range(k+1)]for _ in range(n+1)]
     
-    for i in range(n):
+    for i in range(n+1):
         table_DP[i][0]=[(0,0)]
     
     
-    for i in range(1,k+1):
-        table_DP[0][i]=[(v[0] + vecteurs[0][0], v[1] + vecteurs[0][1]) for v in table_DP[0][i-1]]
-
     for i in range(1,n+1):
         for j in range(1,k+1):
             without_i=table_DP[i-1][j]
             with_i = [(v[0] + vecteurs[i-1][0], v[1] + vecteurs[i-1][1]) for v in table_DP[i-1][j-1]]
-            vecteurs_i_j=np.array(without_i+with_i)
-            vecteurs_opti=ordre_lex_pareto(vecteurs_i_j)
+            vecteurs_somme=with_i+without_i
+            if vecteurs_somme:
+                vecteurs_i_j=np.array(without_i+with_i)
+                vecteurs_opti=ordre_lex_pareto(vecteurs_i_j)
+            else:
+                vecteurs_opti=[]
             table_DP[i][j]=vecteurs_opti
     
+    print(table_DP)
     return table_DP[n][k]
 
 def find_minimax(vecteurs,alpha_min,alpha_max):
@@ -42,7 +44,6 @@ def find_minimax(vecteurs,alpha_min,alpha_max):
 
 def deux_etapes_procedures(vecteurs,k,alpha_min,alpha_max):
     vecteurs_non_domines=prog_dynamique(vecteurs,k)
-    print(vecteurs_non_domines)
     point_minimax=find_minimax(vecteurs_non_domines,alpha_min,alpha_max)
     
     return point_minimax
@@ -50,8 +51,9 @@ def deux_etapes_procedures(vecteurs,k,alpha_min,alpha_max):
 
 alpha_min=0.1
 alpha_max=0.9
-k=10
-vecteurs=generer_vecteurs_normaux(50,10)
+k=2
+vecteurs=generer_vecteurs_normaux(3,10)
+print(vecteurs)
 
 print(deux_etapes_procedures(vecteurs,k,alpha_min,alpha_max))
         
